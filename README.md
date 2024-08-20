@@ -71,18 +71,15 @@ Para ejecutar este proyecto en tu entorno local, sigue los siguientes pasos:
 
 ```mermaid
 graph TD;
-    A[Producer] -->|Produce Messages| B[Kafka];
-    B -->|Stores Offset| C[Zookeeper];
-    B -->|Sends Data| D[MongoDB];
-    B -->|Consume Messages| E[Consumer];
+    A[Kafka Producer - Spring Boot Controller] -->|Send Message| B[Kafka Broker];
+    B -->|Store Initial State| C[MongoDB];
+    A -->|Store Message| C;
 ```    
 Descripción del Gráfico
 
-- **Producer (Spring Boot)**: La aplicación Spring Boot actúa como un productor de mensajes, enviándolos a Kafka.
-- **Kafka**: Actúa como el broker que recibe mensajes de los productores, los almacena temporalmente, y los envía a los consumidores. Kafka también gestiona la replicación de mensajes y el almacenamiento de los offsets en Zookeeper.
-- **Zookeeper**: Coordina y gestiona los brokers de Kafka, asegurando la alta disponibilidad y la gestión de líderes en el clúster.
-- **MongoDB:** Almacena de manera persistente los datos que han sido consumidos por los consumidores de Kafka.
-Consumer (Spring Boot): La aplicación Spring Boot también actúa como un consumidor, procesando los mensajes que recibe de Kafka.
+- **A[Kafka Producer - Spring Boot Controller]**: Representa el controlador de Spring Boot que envía mensajes al broker de Kafka y guarda el estado inicial en MongoDB.
+- **B[Kafka Broker]**: Es el broker de Kafka, que recibe los mensajes enviados desde el controlador.
+- **C[MongoDB]**: La base de datos MongoDB donde se almacena tanto el estado inicial como los mensajes procesados.
 
 
 ## Comandos Útiles
