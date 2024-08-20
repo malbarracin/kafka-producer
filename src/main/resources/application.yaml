@@ -1,0 +1,31 @@
+server:
+  port: ${PORT:8080}
+    
+spring:
+  webflux:
+    base-path: /kafka-producer
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      acks: all
+      retries: 3
+      enable-idempotence: true
+      max-in-flight-requests-per-connection: 5
+      transactional-id: "prod-1"    
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: kafkaProducerDB
+      username: root
+      password: root
+      authentication-database: admin
+      
+logging:
+  level:
+    root: info
+    
+    
+    
