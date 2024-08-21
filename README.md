@@ -1,3 +1,5 @@
+![Mi Avatar](https://github.com/malbarracin/malbarracin/blob/main/malbarracin_git_profile.png)
+
 # Proyecto de Kafka con Zookeeper y MongoDB
 
 Este proyecto configura un entorno completo usando Docker Compose para ejecutar Apache Kafka, Zookeeper y MongoDB. 
