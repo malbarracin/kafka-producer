@@ -123,7 +123,7 @@ A continuación, se describen algunos comandos útiles que se pueden ejecutar pa
 
     **Explicación**:
        - **use admin**: Cambia a la base de datos admin, que es la base de datos de administración por defecto en MongoDB.
-       - **db.auth('root', 'rot')**: Autentica al usuario root con la contraseña rot en la base de datos admin. Esto es necesario si la autenticación está habilitada en MongoDB.
+       - **db.auth( 'mongoadmin', 'secret' )**: Autentica al usuario root con la contraseña rot en la base de datos admin. Esto es necesario si la autenticación está habilitada en MongoDB.
 
 ## Integración con Spring Boot    
 
