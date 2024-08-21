@@ -118,7 +118,7 @@ A continuación, se describen algunos comandos útiles que se pueden ejecutar pa
 
     ```bash
     use admin
-    db.auth('root', 'rot')
+    db.auth( 'mongoadmin', 'secret' )
     ```
 
     **Explicación**:
