@@ -2,10 +2,8 @@ server:
   port: ${PORT:8080}
     
 spring:
-  webflux:
-    base-path: /kafka-producer
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
@@ -16,16 +14,18 @@ spring:
       transactional-id: "prod-1"    
   data:
     mongodb:
-      host: localhost
-      port: 27017
-      database: kafkaProducerDB
-      username: root
-      password: root
+      host: ${DATA_BASE_HOST:localhost}
+      port: ${DATA_BAE_PORT:27017}
+      database: ${DATA_BASE_NAME:kafkaProducerDB}
+      username: ${DATA_BASE_USER_NAME:mongoadmin}
+      password: ${DATA_BASE_USER_PASSWORD:secret}
       authentication-database: admin
-      
+
+custom:
+  kafka:
+    broker: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+          
 logging:
   level:
-    root: info
-    
-    
+    root: info 
     
